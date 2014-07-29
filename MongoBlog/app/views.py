@@ -17,13 +17,13 @@ def blog_index(request):
     context = {'blogs': blogs}
     return render(request, 'blogs.html', context)
 
-def user(request, user_id):
-    user = models.User.objects(id=user_id)
+def user(request):
+    user = models.User.objects(id=request.GET['user_id'])
     context = {'user': user}
     return render(request, 'user.html', context)
 
-def blog(request, blog_id):
-    blog = models.Blog.objects(id=blog_id)
+def blog(request):
+    blog = models.Blog.objects(id=request.GET['blog_id'])
     context = {'blog': blog}
     return render(request, 'blog.html', context)
 
